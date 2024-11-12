@@ -1,5 +1,5 @@
 <?php
- require './loggedIN.php'
+ require './loggedIN.php';
  if(isset($_SESSION["id"])){
   unset($_SESSION["id"]);
  }

@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+html{
+ position:absolute;
+ top:0;
+ bottom:0;
+ right:0;
+ left:0;
+ >body{
+  position:inherit;
+  top:inherit;
+  bottom:inherit;
+  left:inherit;
+  right:inherit;
+  >section.card{
+   position:inherit;
+   top:inherit;
+   bottom:inherit;
+   left:inherit;
+   right:inherit;
+   background-color:$sand;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   flex-direction:column;
+   &:not(.visible){
+    display:none;
+   }
+   
+   button{
+    padding:1.5vmin 3vmin;
+    background-color:$primary;
+    color:white;
+    border:1vmin solid $primary;
+    outline:0;
+    cursor:pointer;
+    &:hover,&:focus,&:active{
+     background-color:white;
+     color:$primary;
+    }
+   }
+  }
+ }
+}
+
+@import "./style/menu.scss";
+@import "./style/qr.scss";
+@import "./style/sendmoney.scss";
+@import "./style/opi.scss";

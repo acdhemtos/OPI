@@ -1,0 +1,21 @@
+html>body>section.card.visible#menu{
+ >div{
+  background-color:white;
+  border:0.1vmin solid $primary;
+  padding:5vmin;
+  padding-top:0;
+  display:flex;
+  flex-direction:column;
+  >*{
+   font-size:10vw;
+   margin-top:2.5vmin;
+   text-align:center;
+  }
+  >span{
+   font-size:7vw;
+   &:before{
+    content:"Balance : ₹";
+   }
+  }
+ }
+}

@@ -1,0 +1,21 @@
+html>body>section.card.visible[id^="opi"]{
+ padding:5vw;
+ >*{
+  width:90vw;
+ }
+ >div#canvas{
+  height:90vw;
+  background-color:black;
+ }
+ >canvas{
+  flex-grow:1;
+  background-color:white;
+  opacity:0.5;
+ }
+ >a{
+  cursor:pointer;
+  font-size:10vw;
+  text-decoration:underline;
+  text-align:center;
+ }
+}

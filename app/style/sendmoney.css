@@ -1,0 +1,35 @@
+html > body > section.card.visible#sendmoney {
+  padding: 5vw;
+}
+html > body > section.card.visible#sendmoney > * {
+  width: 90vw;
+}
+html > body > section.card.visible#sendmoney > canvas {
+  flex-grow: 1;
+  background-color: white;
+}
+html > body > section.card.visible#sendmoney > div {
+  padding: 5vw;
+  padding-bottom: 0;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+html > body > section.card.visible#sendmoney > div > label {
+  display: flex;
+  justify-content: end;
+}
+html > body > section.card.visible#sendmoney > div > * {
+  margin: 1vw 0;
+}
+html > body > section.card.visible#sendmoney > div input {
+  font-size: 3vw;
+}
+html > body > section.card.visible#sendmoney button {
+  cursor: pointer;
+  font-size: 5vw;
+  margin-top: 1vw;
+  text-align: center;
+}
+
+/*# sourceMappingURL=sendmoney.css.map */

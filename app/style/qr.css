@@ -1,0 +1,14 @@
+html > body > section.card.visible#qr > * {
+  width: 90%;
+}
+html > body > section.card.visible#qr > canvas {
+  background-color: white;
+  margin-bottom: 2.5vh;
+  order: 1;
+}
+html > body > section.card.visible#qr > button {
+  font-size: 10vw;
+  order: 2;
+}
+
+/*# sourceMappingURL=qr.css.map */

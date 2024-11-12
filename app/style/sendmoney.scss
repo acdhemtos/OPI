@@ -1,0 +1,33 @@
+html>body>section.card.visible#sendmoney{
+ padding:5vw;
+ >*{
+  width:90vw;
+ }
+ >canvas{
+  flex-grow:1;
+  background-color:white;
+ }
+ >div{
+  padding:5vw;
+  padding-bottom:0;
+  font-size:5vw;
+  display:flex;
+  flex-direction:column;
+  >label{
+   display:flex;
+   justify-content:end;
+  }
+  >*{
+   margin:1vw 0;
+  }
+  input{
+   font-size:3vw;
+  }
+ }
+ button{
+  cursor:pointer;
+  font-size:5vw;
+  margin-top:1vw;
+  text-align:center;
+ }
+}

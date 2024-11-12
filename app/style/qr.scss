@@ -1,0 +1,14 @@
+html>body>section.card.visible#qr{
+ >*{
+  width:90%;
+ }
+ >canvas{
+  background-color:white;
+  margin-bottom:2.5vh;
+  order:1;
+ }
+ >button{
+  font-size:10vw;
+  order:2;
+ }
+}

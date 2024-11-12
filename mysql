@@ -1,14 +1,18 @@
+DROP DATABASE opi;
+
 CREATE DATABASE opi; 
 
 CREATE TABLE users (
- id INT AUTO_INCREMENT PRIMARY KEY,
  username CHAR(15) NOT NULL,
  password CHAR(32) NOT NULL,
+ balance INT DEFAULT 0,
+ code CHAR(20)
 );
 
 CREATE TABLE transactions (
  id INT AUTO_INCREMENT PRIMARY KEY,
  sender CHAR(15) NOT NULL,
- reciever CHAR(15) NOT NULL,
- amount INT
+ receiver CHAR(15) NOT NULL,
+ amount INT,
+ transaction_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

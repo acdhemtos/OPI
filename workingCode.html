@@ -1,0 +1,46 @@
+<canvas id="canvas" height="240" width="320"></canvas>
+<div id="barcodes"></div>
+<div id="log"></div>
+
+<script>
+function log(msg){
+ document.getElementById("log").innerHTML += msg;
+}
+try{
+navigator.mediaDevices.enumerateDevices().then((devices) => {
+	let id = 0;
+ for(let i=0;i<devices.length;i++){
+  if(devices[i].kind=="videoinput" && devices[i].label.endsWith("back")){
+   id = devices[i].deviceId;
+  }
+ }
+ 
+ let constrains = {video: {optional: [{sourceId: id }]}};
+ 
+ navigator.mediaDevices.getUserMedia(constrains).then((stream) => {
+    let capturer = new ImageCapture(stream.getVideoTracks()[0]);
+  	step(capturer);
+  });
+});
+
+function step(capturer) {
+    capturer.grabFrame().then((bitmap) => {
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height, 0, 0, canvas.width, canvas.height);
+      var barcodeDetector = new BarcodeDetector();
+      barcodeDetector.detect(bitmap)
+        .then(barcodes => {
+          log(barcodes.map(barcode => barcode.rawValue).join(', '));
+          step(capturer);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    });
+}
+}
+catch(err){
+ log(err.message);
+}
+</script>

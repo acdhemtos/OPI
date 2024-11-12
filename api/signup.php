@@ -15,10 +15,12 @@
   $result['msg'] = $errorMSG;
   $result['code'] = 0;
  }else{
-  require "../connection.php";
+  require "./connection.php";
   $passHash = md5($password);
   $query = "INSERT INTO users (username, password) VALUES ('".$username."', '".$passHash."')";
   mysqli_query($con, $query);
+  require "./generateCODE.php";
+  resetCODE($con,$username);
   $result['msg'] = 'Signup Successful!';
  } 
  die(json_encode($result));

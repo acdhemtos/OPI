@@ -1,7 +1,7 @@
 <?php
  session_start();
  function loggedIN(){
-  return isset($_SESSION["id"]);
+  return isset($_SESSION["username"]);
  }
  
 ?>

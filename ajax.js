@@ -20,12 +20,12 @@ async function doit(){
 doit();
 
 */
-
+//{"code":'D9akq5zGJVgqltys1o6ELNCcRPLNM6'}
 /*
 <?php
  header('Content-Type: application/json');
 
- $test=json_decode(file_get_contents("php://input"));
+ $test=json_decode(file_get_contents("php://input"),true);
 
  echo json_encode($test);
 

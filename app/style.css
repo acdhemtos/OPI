@@ -1,0 +1,140 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Tahoma;
+  color: rgb(103, 58, 183);
+}
+
+html {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+html > body {
+  position: inherit;
+  top: inherit;
+  bottom: inherit;
+  left: inherit;
+  right: inherit;
+}
+html > body > section.card {
+  position: inherit;
+  top: inherit;
+  bottom: inherit;
+  left: inherit;
+  right: inherit;
+  background-color: rgb(253, 245, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html > body > section.card:not(.visible) {
+  display: none;
+}
+html > body > section.card button {
+  padding: 1.5vmin 3vmin;
+  background-color: rgb(103, 58, 183);
+  color: white;
+  border: 1vmin solid rgb(103, 58, 183);
+  outline: 0;
+  cursor: pointer;
+}
+html > body > section.card button:hover, html > body > section.card button:focus, html > body > section.card button:active {
+  background-color: white;
+  color: rgb(103, 58, 183);
+}
+
+html > body > section.card.visible#menu > div {
+  background-color: white;
+  border: 0.1vmin solid rgb(103, 58, 183);
+  padding: 5vmin;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+html > body > section.card.visible#menu > div > * {
+  font-size: 10vw;
+  margin-top: 2.5vmin;
+  text-align: center;
+}
+html > body > section.card.visible#menu > div > span {
+  font-size: 7vw;
+}
+html > body > section.card.visible#menu > div > span:before {
+  content: "Balance : ₹";
+}
+
+html > body > section.card.visible#qr > * {
+  width: 90%;
+}
+html > body > section.card.visible#qr > canvas {
+  background-color: white;
+  margin-bottom: 2.5vh;
+  order: 1;
+}
+html > body > section.card.visible#qr > button {
+  font-size: 10vw;
+  order: 2;
+}
+
+html > body > section.card.visible#sendmoney {
+  padding: 5vw;
+}
+html > body > section.card.visible#sendmoney > * {
+  width: 90vw;
+}
+html > body > section.card.visible#sendmoney > canvas {
+  flex-grow: 1;
+  background-color: white;
+}
+html > body > section.card.visible#sendmoney > div {
+  padding: 5vw;
+  padding-bottom: 0;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+html > body > section.card.visible#sendmoney > div > label {
+  display: flex;
+  justify-content: end;
+}
+html > body > section.card.visible#sendmoney > div > * {
+  margin: 1vw 0;
+}
+html > body > section.card.visible#sendmoney > div input {
+  font-size: 3vw;
+}
+html > body > section.card.visible#sendmoney button {
+  cursor: pointer;
+  font-size: 5vw;
+  margin-top: 1vw;
+  text-align: center;
+}
+
+html > body > section.card.visible[id^=opi] {
+  padding: 5vw;
+}
+html > body > section.card.visible[id^=opi] > * {
+  width: 90vw;
+}
+html > body > section.card.visible[id^=opi] > div#canvas {
+  height: 90vw;
+  background-color: black;
+}
+html > body > section.card.visible[id^=opi] > canvas {
+  flex-grow: 1;
+  background-color: white;
+  opacity: 0.5;
+}
+html > body > section.card.visible[id^=opi] > a {
+  cursor: pointer;
+  font-size: 10vw;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

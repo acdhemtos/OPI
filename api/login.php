@@ -14,17 +14,18 @@
   $result['msg'] = "Some Error Occured.";
   $result['code'] = 1;
  }else{
-  require "../connection.php";
+  require "./connection.php";
   $passHash = md5($password);
   
-  $query = "SELECT id FROM users WHERE username='".$username."' AND password='".$passHash."'";
-  $res = mysqli_query($con, $query);
-  if(mysqli_num_rows($res)==0){
+  $query = "SELECT * FROM users WHERE username='".$username."' AND password='".$passHash."'";
+  if(mysqli_num_rows(mysqli_query($con, $query))==0){
    $result['msg'] = 'Wrong Password';
    $result['code'] = 1;
   }else{
    session_start();
-   $_SESSION["id"] = (int)(mysqli_fetch_row($res)[0]);
+   $_SESSION["username"] = $username;
+   require "./generateCODE.php";
+   resetCODE($con,$username);
    $result['msg'] = "Login Successful!";
   }
  } 

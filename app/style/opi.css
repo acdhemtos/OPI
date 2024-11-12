@@ -1,0 +1,23 @@
+html > body > section.card.visible[id^=opi] {
+  padding: 5vw;
+}
+html > body > section.card.visible[id^=opi] > * {
+  width: 90vw;
+}
+html > body > section.card.visible[id^=opi] > div#canvas {
+  height: 90vw;
+  background-color: black;
+}
+html > body > section.card.visible[id^=opi] > canvas {
+  flex-grow: 1;
+  background-color: white;
+  opacity: 0.5;
+}
+html > body > section.card.visible[id^=opi] > a {
+  cursor: pointer;
+  font-size: 10vw;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/*# sourceMappingURL=opi.css.map */

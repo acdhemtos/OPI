@@ -8,7 +8,7 @@ async function signup(){
  let passVal = pass.querySelector('input').value;
  let rePassVal = repass.querySelector('input').value;
  
- let usernameValidate = await AJAX("../api/account/signupUsername.php",{"username":userVal});
+ let usernameValidate = await AJAX("../api/signupUsername.php",{"username":userVal});
  if(usernameValidate['code']==0){
   username.removeAttribute('error');
  }else{
@@ -16,7 +16,7 @@ async function signup(){
   return;
  }
  
- let passwordValidate = await AJAX("../api/account/password.php",{"password":passVal});
+ let passwordValidate = await AJAX("../api/password.php",{"password":passVal});
  if(passwordValidate['code']==0){
   pass.removeAttribute('error');
  }else{
@@ -31,7 +31,7 @@ async function signup(){
   return;
  }
  
- let signupValidate = await AJAX("../api/account/signup.php",{"username":userVal,"password":passVal});
+ let signupValidate = await AJAX("../api/signup.php",{"username":userVal,"password":passVal});
  alert(signupValidate['msg']);
  if(signupValidate['code']==0){
   window.location.href = "./login.html";
