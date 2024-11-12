@@ -1,0 +1,15 @@
+CREATE DATABASE opi; 
+
+CREATE TABLE users (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ username CHAR(15) NOT NULL,
+ password CHAR(32) NOT NULL,
+ name CHAR(30)
+);
+
+CREATE TABLE merchants (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ username CHAR(15) NOT NULL,
+ password CHAR(32) NOT NULL,
+ name CHAR(30)
+);
