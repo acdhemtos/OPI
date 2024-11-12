@@ -1,14 +1,8 @@
-/*setTimeout(function(){
- window.location.reload();
-},10000);
-*/
-
 function setting(){
  INTERNET = true
  let repeated = function(){
   stillIN();
   updateBalance();
-  updateCODE();
   //updateTransactions
   
  }
@@ -25,7 +19,3 @@ window.addEventListener('offline', function(){
 });
 
 makeQR(document.querySelector("html>body>section.card#qr"),window.sessionStorage.username);
-
-openSendMoney();//sendmoney
-//opeRecieve
-//opiSEND

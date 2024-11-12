@@ -1,7 +1,9 @@
 messages = [
+ "",
  "Transaction Successful!",
  "Insufficient Balance.",
- "Cannot Verify."
+ "Cannot Verify.",
+ "Invalid Communication."
 ];
 
 INTERNET = true
@@ -13,7 +15,7 @@ function die(){
 }
 
 async function stillIN(){
- let data = await AJAX("../api/stillIN.php",{});
+ let data = await AJAX("../api/stillIN.php",{"code":window.sessionStorage.code});
  if(data['login']==0){
   die();
  }
@@ -24,11 +26,6 @@ async function updateBalance(){
  document.querySelector("html>body>section.card#menu>div>span").innerHTML = data["balance"]/100;
 }
 
-async function updateCODE(){
- let data = await AJAX("../api/getCODE.php",{});
- window.sessionStorage.code = data["code"];
-}
-
 function openCard(id){
  let allOpen = document.querySelectorAll("html>body>section.card.visible");
  for(let i=0;i<allOpen.length;i++){
@@ -36,9 +33,4 @@ function openCard(id){
  }
  document.querySelector("html>body>section.card#"+id).classList.add('visible');
 }
-
-openCard('menu');
-
-function request(data,url){
- 
-}
+openCard("menu");

@@ -6,7 +6,8 @@ CREATE TABLE users (
  username CHAR(15) NOT NULL,
  password CHAR(32) NOT NULL,
  balance INT DEFAULT 0,
- code CHAR(20)
+ code CHAR(20),
+ i INT
 );
 
 CREATE TABLE transactions (

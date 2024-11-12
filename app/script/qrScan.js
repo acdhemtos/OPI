@@ -11,7 +11,7 @@ function verify(str) {
 }
 
 function startReading(mode,canvas,func){
- ABORT_QR = false
+ ABORT_QR = false;
  navigator.mediaDevices.enumerateDevices().then((devices) => {
   let id = 0;
   for(let i=0;i<devices.length;i++){

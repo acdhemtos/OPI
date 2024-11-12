@@ -26,6 +26,8 @@
    $_SESSION["username"] = $username;
    require "./generateCODE.php";
    resetCODE($con,$username);
+   $query = "UPDATE users SET i = 0 WHERE username='".$username."'";
+   mysqli_query($con, $query);
    $result['msg'] = "Login Successful!";
   }
  } 

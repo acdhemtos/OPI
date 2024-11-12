@@ -1,11 +1,33 @@
 html>body>section.card.visible[id^="opi"]{
  padding:5vw;
+ &.green{
+  background-color:green;
+ }
+ &.red{
+  background-color:red;
+ }
  >*{
   width:90vw;
  }
  >div#canvas{
   height:90vw;
-  background-color:black;
+  background-color:white;
+  >canvas{
+   height:100%;
+   width:100%;
+  }
+ }
+ &:after{
+  position:absolute;
+  left:5vw;
+  right:5vw;
+  text-align:center;
+  top:95vw;
+  content:attr(msg);
+  font-size:10vw;
+  >canvas{
+   opacity:1;
+  }
  }
  >canvas{
   flex-grow:1;
@@ -17,5 +39,6 @@ html>body>section.card.visible[id^="opi"]{
   font-size:10vw;
   text-decoration:underline;
   text-align:center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
  }
 }
