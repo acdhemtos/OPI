@@ -1,0 +1,117 @@
+$primary: rgb(103,58,183);
+$primary-light : rgb(194,185,222);
+
+$sand: rgb(253,245,230);
+
+*{
+ padding:0;
+ margin:0;
+ font-family:Tahoma;
+ color:$primary;
+}
+
+html{
+ >body{
+  height:100vh;
+  width:100vw;
+  background-color:$sand;
+  display:flex;
+  justify-content:center;
+  align-items:center;   
+  >section{
+   background-color:white;
+   width:calc(90vw - 5vmin);
+   border-radius:5vmin;
+   border:0.5vmin solid $primary;
+   display:flex;
+   flex-direction:column;
+   padding:2.5vmin;
+   >header{
+    text-align:center;
+    font-size:4vh;
+    font-weight:bold;
+    margin-bottom:2vh;
+   }
+   >form{
+    display:flex;
+    flex-direction:column;
+    >div{
+     *{
+      transition-duration:0.2s;
+     }
+     display:flex;
+     flex-direction:column;
+     margin-bottom:1.5vh;
+     position:relative;
+     >input{
+      z-index:2;
+      background-color:transparent;
+      border:0;
+      outline:0;
+      margin-bottom:0.5vh;
+      border-bottom:0.05em solid $primary;
+      &:focus,&:valid{
+       border-bottom-width:0.1em;
+       +p{
+        transform:translateY(calc( -1em - 0.5vh) ) scale(0.5);
+        color:$primary;
+        &:after{
+         content:" :";
+        }
+       }
+      }
+     }
+     >input,>p{
+      font-size:3vh;
+      padding:1vmin 2vmin;
+      padding-bottom:0.5vh;
+     }
+     >p{
+      position:absolute;
+      color:$primary-light;
+      transform-origin:left center;
+     }
+     &:after,>a{
+      line-height:1.8vh;
+      font-size:2vh;
+      height:1.8vh;
+      text-align:right;
+      text-decoration:none;
+     }
+     >a:hover{
+      cursor:pointer;
+      text-decoration:underline;
+     }
+     
+     &[error]{
+      &:after{
+       transform:translateY(-15%);
+       content:attr(error);
+       color:red;
+      }
+      >input{
+       border-color:red;
+      }
+      >p{
+       color:red !important;
+      }
+     }
+     &:last-child{
+      >input{
+       transition-duration:0s;
+       border:0.1em solid $primary;
+       line-height:1.2em;
+       background-color:$primary;
+       cursor:pointer;
+       color:white;
+       &:hover,&:active{
+        color:$primary;
+        background-color:white;
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
