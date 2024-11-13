@@ -36,13 +36,8 @@
       $result['msg'] = 'Cannot Transfer 0.';
       $result['code'] = 1;
      }else{
-      require "./connection.php";
-      $query = "INSERT INTO transactions (sender, receiver, amount) VALUES ('".$_SESSION["username"]."', '".$reciever."', ".$amount.")";
-      mysqli_query($con, $query);
-      $query = "UPDATE users SET balance = balance - ".$amount." WHERE username = '".$_SESSION["username"]."'";
-      mysqli_query($con, $query);
-      $query = "UPDATE users SET balance = balance + ".$amount." WHERE username = '".$reciever."'";
-      mysqli_query($con, $query);
+      require "./transfer.php";
+      transfer($_SESSION["username"],$reciever,$amount);
       $result['msg'] = "Transaction Successful!";
      }
     }

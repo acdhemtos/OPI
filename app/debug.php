@@ -10,6 +10,13 @@
 <html>
  <head>
   <link rel="stylesheet" href="./style.css" />
+  <style>
+  textarea {
+  height: 500px !important;
+  width: 500px !important;
+}
+
+  </style>
  </head>
  <body>
   <section id="menu" class="card">
@@ -40,13 +47,13 @@
     <button onclick="closeSendMoney();">BACK</button>
   </section>
   <section id="opisend" class="card">
-   <div id="canvas"><canvas></canvas></div>
-   <canvas id="webcam"></canvas>
-   <a onclick="closeOPIsend();">Ba ck</a>
+   <div id="canvas"><textarea></textarea></div>
+   <textarea id="webcam"></textarea>
+   <a onclick="closeOPIsend();">Back</a>
   </section>
   <section id="opirecieve" class="card">
-   <div id="canvas"><canvas></canvas></div>
-   <canvas id="webcam"></canvas>
+   <div id="canvas"><textarea></textarea></div>
+   <textarea id="webcam"></textarea>
    <a onclick="closeOPIrecieve();">Back</a>
   </section>
   <script type="text/javascript">
@@ -64,6 +71,7 @@
   <script type="text/javascript" src="./script/MD5.js"></script>
   <script type="text/javascript" src="./script/opiSend.js"></script>
   <script type="text/javascript" src="./script/opiRecieve.js"></script>
+  <script type="text/javascript" src="./script/opiDebug.js"></script>
   <script type="text/javascript" src="./script/after.js"></script>
  </body>
 </html>

@@ -2,10 +2,10 @@ html > body > section.card.visible[id^=opi] {
   padding: 5vw;
 }
 html > body > section.card.visible[id^=opi].green {
-  background-color: green;
+  background-color: lightgreen;
 }
 html > body > section.card.visible[id^=opi].red {
-  background-color: red;
+  background-color: pink;
 }
 html > body > section.card.visible[id^=opi] > * {
   width: 90vw;
@@ -33,7 +33,7 @@ html > body > section.card.visible[id^=opi]:after > canvas {
 html > body > section.card.visible[id^=opi] > canvas {
   flex-grow: 1;
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 html > body > section.card.visible[id^=opi] > a {
   cursor: pointer;

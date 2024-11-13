@@ -6,6 +6,11 @@
   color: rgb(103, 58, 183);
 }
 
+textarea {
+  height: 500px !important;
+  width: 500px !important;
+}
+
 html {
   position: absolute;
   top: 0;

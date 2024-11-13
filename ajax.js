@@ -5,9 +5,24 @@ async function AJAX(url,data) {
    headers: {'Content-Type': 'application/json'}, 
    body: JSON.stringify(data)
   });
+  
+  
   const content = await res.text();
+  
+  if(url.endsWith("startHandshake.php")||url.endsWith("finishHandshake.php")){
+   DUMP(JSON.stringify(data)); DUMP(content);
+  }
   console.log(url,data,content);
   return JSON.parse(content);
+}
+
+async function DUMP(data) {
+  const rand = Math.floor((Math.random() * 10000000000) +1) ;
+  const res = await fetch('../log.php?'+rand.toString(), {
+   method: "POST",
+   headers: {'Content-Type': 'application/json'}, 
+   body: data
+  });
 }
 
 /*

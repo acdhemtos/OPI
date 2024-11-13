@@ -1,10 +1,10 @@
 html>body>section.card.visible[id^="opi"]{
  padding:5vw;
  &.green{
-  background-color:green;
+  background-color:lightgreen;
  }
  &.red{
-  background-color:red;
+  background-color:pink;
  }
  >*{
   width:90vw;
@@ -32,7 +32,7 @@ html>body>section.card.visible[id^="opi"]{
  >canvas{
   flex-grow:1;
   background-color:white;
-  opacity:0.5;
+  opacity:0.25;
  }
  >a{
   cursor:pointer;

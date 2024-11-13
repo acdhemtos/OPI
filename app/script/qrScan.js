@@ -35,7 +35,7 @@ function startReading(mode,canvas,func){
     ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height, 0, 0, canvas.width, canvas.height);
     var barcodeDetector = new BarcodeDetector();
     barcodeDetector.detect(bitmap).then(barcodes => {
-     barcode = verify(barcodes.map(barcode => barcode.rawValue).join(', '));
+     let barcode = verify(barcodes.map(barcode => barcode.rawValue).join(', '));
      
      if(barcode!=false && barcode!="" && barcode!=QR){
       QR = barcode;

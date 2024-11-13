@@ -14,6 +14,10 @@ function die(){
  document.querySelector("html>body>section.card#menu>div>a").click();
 }
 
+function clearCanvas(canvas) {
+ canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+}
+
 async function stillIN(){
  let data = await AJAX("../api/stillIN.php",{"code":window.sessionStorage.code});
  if(data['login']==0){

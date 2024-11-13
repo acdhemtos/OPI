@@ -40,13 +40,15 @@
     <button onclick="closeSendMoney();">BACK</button>
   </section>
   <section id="opisend" class="card">
-   <div id="canvas"><canvas></canvas></div>
-   <canvas id="webcam"></canvas>
-   <a onclick="closeOPIsend();">Ba ck</a>
+   <div id="canvas"><!--<canvas></canvas>--><textarea></textarea></div>
+   <!--<canvas id="webcam"></canvas>-->
+   <textarea id="webcam"></textarea>
+   <a onclick="closeOPIsend();">Back</a>
   </section>
   <section id="opirecieve" class="card">
-   <div id="canvas"><canvas></canvas></div>
-   <canvas id="webcam"></canvas>
+   <div id="canvas"><!--<canvas></canvas>--><textarea></textarea></div>
+   <!--<canvas id="webcam"></canvas>-->
+   <textarea id="webcam"></textarea>
    <a onclick="closeOPIrecieve();">Back</a>
   </section>
   <script type="text/javascript">
