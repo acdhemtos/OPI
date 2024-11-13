@@ -12,7 +12,7 @@ async function AJAX(url,data) {
   if(url.endsWith("startHandshake.php")||url.endsWith("finishHandshake.php")){
    DUMP(JSON.stringify(data)); DUMP(content);
   }
-  console.log(url,data,content);
+  //console.log(url,data,content);
   return JSON.parse(content);
 }
 

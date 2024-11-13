@@ -13,6 +13,7 @@ function openSendMoney(){
  canvas.style.display = "block";
  startReading("back",canvas,function(){
   document.querySelector("html>body>section.card#sendmoney>div>label:first-child>input").value = QR;
+  ABORT_QR = true;
  });
  
  openCard("sendmoney");

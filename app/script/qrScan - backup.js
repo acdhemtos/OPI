@@ -14,11 +14,12 @@ function startReading(mode,canvas,func){
  ABORT_QR = false;
  navigator.mediaDevices.enumerateDevices().then((devices) => {
   let id = 0;
-  for(let i=0;i<devices.length;i++){
+  for(let i=0;i<devices.length && id!=0;i++){
    if(devices[i].kind=="videoinput" && devices[i].label.endsWith(mode)){
     id = devices[i].deviceId;
    }
   }
+  console.log(id);
   let constrains = {video: {optional: [{sourceId: id }]}};
   
   navigator.mediaDevices.getUserMedia(constrains).then((stream) => {
@@ -38,6 +39,7 @@ function startReading(mode,canvas,func){
      
      if(barcode!=false && barcode!="" && barcode!=QR){
       QR = barcode;
+      ABORT_QR = true;
       func();
      }
      step(capturer);

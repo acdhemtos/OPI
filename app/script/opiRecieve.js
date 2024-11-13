@@ -8,6 +8,9 @@ try {
   console.log(err);
 }
 
+RFreset = false;
+let RFS = undefined;
+
 RcanvasParent.onclick = function(){alert(RLOGS);};
 
 function Rwrite(msg,name){
@@ -19,21 +22,19 @@ function Rread(func){
  startReading("front",Rcanvas,func);
 }
 
-
 function Rabort(msg,cla){
  Rsection.setAttribute("msg",msg);
  Rsection.classList.add(cla);
 }
-Rsteps = 0;
 RLOGS = ""
 
 function rlog(msg){
  RLOGS +="READING : "+msg+" : "+QR+"\n";
 }
 
-
-
 async function finishHandShake(hID){
+ RFS = undefined;
+ RFreset = true;
  rlog("finishHandShake 0");
  if(QR=="3" || QR=="4"){
   Rabort(messages[QR.toString()],"red");
@@ -81,13 +82,11 @@ async function getUserIDkey(amount){
  }
  let hID = data['id'];
  Rwrite("0\n"+data['i'].toString(), "getUserIDkey 3");
- Rread(function(){
-  if(Rsteps==1){
-   Rsteps = 2;
-   finishHandShake(hID);
-  }
-  
- });
+ 
+ RFS = function(){
+  finishHandShake(hID);
+ };
+ RFreset = true;
 }
 
 function openOPIrecieve(){
@@ -107,10 +106,20 @@ function openOPIrecieve(){
  amount = parseInt(amount*100);
  amount = amount.toString();
  Rwrite(window.sessionStorage.username+"\n"+amount, "openOPIrecieve 1");
+ 
+ RFS = function(){
+  getUserIDkey(amount);
+ };
+ RFreset = true;
+ 
  Rread(function(){
-  if(Rsteps==0){
-   Rsteps = 1;
-   getUserIDkey(amount);
+  if(RFreset){
+   if(RFS==undefined){
+    ABORT_QR = true;
+   }else{
+    RFreset = false;
+    RFS();
+   }
   }
  });
 }
@@ -123,7 +132,7 @@ function closeOPIrecieve(){
 }catch(err) {
   console.log(err);
 }
- 
+ ABORT_QR = true;
  Rsection.classList.remove("green");
  Rsection.classList.remove("red");
  Rsection.removeAttribute("msg");

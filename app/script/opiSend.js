@@ -18,14 +18,15 @@ try {
   console.log(err);
 }
 
+SFreset = false;
+let SFS = undefined;
+
 ScanvasParent.onclick = function(){ alert(SLOGS); };
 
 function Swrite(msg,name){
  SLOGS += "WRITING : "+name+" : "+msg+"\n";
  makeQR(ScanvasParent,msg);
 }
-
-MSG = ""
 
 function Sread(func){
  startReading("front",Scanvas,func);
@@ -44,18 +45,14 @@ function slog(msg){
 }
 
 function funcName(){
- alert("3.0");
- if(Ssteps==2){
-  Ssteps = 3;
-  alert("3.1");
-  slog("funcName");
-  let mode = "red";
-  if(QR=="1"){
-   mode = "green";
-  }
-  Sabort(messages[parseInt(QR)],mode);
-  alert("3.3");
+ SFS = undefined;
+ SFreset = true;
+ slog("funcName");
+ let mode = "red";
+ if(QR=="1"){
+  mode = "green";
  }
+ Sabort(messages[parseInt(QR)],mode);
 }
 
 function verifyKey(reciever,amount){
@@ -88,8 +85,9 @@ function verifyKey(reciever,amount){
  console.log(s);
  let hash = MD5(s);
  Swrite(hash,"verifyKey 4");
- MSG = "dasda";
- Sread(funcName);
+ 
+ SFS = funcName;
+ SFreset = true;
 }
 
 function verifyUsernameAmount(amount){
@@ -108,12 +106,12 @@ function verifyUsernameAmount(amount){
  }
  
  Swrite(window.sessionStorage.username+"\n"+window.sessionStorage.i, "verifyUsernameAmount 3");
- Sread(function(){
-  if(Ssteps==1){
-   Ssteps = 2;
-   verifyKey(reciever,amount);
-  }
- });
+ 
+ SFS = function(){
+  verifyKey(reciever,amount);
+ };
+ SFreset = true;
+ 
 }
 
 function openOPIsend(){
@@ -128,10 +126,20 @@ function openOPIsend(){
  Ssteps = 0;
  amount = parseInt(amount*100);
  amount = amount.toString();
+ 
+ SFS = function(){
+  verifyUsernameAmount(amount);
+ };
+ SFreset = true;
+ 
  Sread(function(){
-  if(Ssteps==0){
-   Ssteps = 1;
-   verifyUsernameAmount(amount); 
+  if(SFreset){
+   if(SFS==undefined){
+    ABORT_QR = true;
+   }else{
+    SFreset = false;
+    SFS();
+   }
   }
  });
 }
@@ -144,7 +152,7 @@ function closeOPIsend(){
 }catch(err) {
   console.log(err);
 }
- 
+ ABORT_QR = true;
  Ssection.classList.remove("green");
  Ssection.classList.remove("red");
  Ssection.removeAttribute("msg");
