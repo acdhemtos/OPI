@@ -43,7 +43,7 @@ html{
       &:focus,&:valid{
        border-bottom-width:0.1em;
        +p{
-        transform:translateY(calc( -1em - 0.5vh) ) scale(0.5);
+        transform:translateY(calc( -1em + 0.25vh) ) scale(0.5);
         color:$primary;
         &:after{
          content:" :";

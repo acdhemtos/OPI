@@ -23,6 +23,6 @@ CREATE TABLE handshakes (
  sender CHAR(15) NOT NULL,
  reciever CHAR(15) NOT NULL,
  hash CHAR(32) NOT NULL,
- amount,
+ amount INT,
  transaction_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

@@ -53,7 +53,7 @@ html > body > section > form > div > input:focus, html > body > section > form >
   border-bottom-width: 0.1em;
 }
 html > body > section > form > div > input:focus + p, html > body > section > form > div > input:valid + p {
-  transform: translateY(calc(-1em - 0.5vh)) scale(0.5);
+  transform: translateY(calc(-1em + 0.25vh)) scale(0.5);
   color: rgb(103, 58, 183);
 }
 html > body > section > form > div > input:focus + p:after, html > body > section > form > div > input:valid + p:after {
